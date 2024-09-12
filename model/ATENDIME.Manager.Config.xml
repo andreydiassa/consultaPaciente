@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans 
+	xmlns="urn:schemas:morphis:foundations:businessobject"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd urn:schemas:morphis:foundations:businessobject http://www.morphis-tech.com/schema/foundations/businessobject.xsd">
+	<manager id="ATENDIME.Manager.Config" name="ATENDIME">
+		<items>
+			<item name="CD_ATENDIMENTO" logicalName="cdAtendimento" type="java.math.BigDecimal" physicalName="CD_ATENDIMENTO" key="true">
+			</item>
+			<item name="CD_CONVENIO" logicalName="cdConvenio" type="java.math.BigDecimal" physicalName="CD_CONVENIO">
+			</item>
+			<item name="NM_CONVENIO" logicalName="nmConvenio" type="java.lang.String"  virtual="true" >
+			</item>
+			<item name="DT_ATENDIMENTO" logicalName="dtAtendimento" type="java.util.Date" physicalName="DT_ATENDIMENTO">
+			</item>
+			<item name="HR_ATENDIMENTO" logicalName="hrAtendimento" type="java.util.Date" physicalName="HR_ATENDIMENTO">
+			</item>
+			<item name="CD_PACIENTE" logicalName="cdPaciente" type="java.math.BigDecimal" physicalName="CD_PACIENTE">
+			</item>
+		</items>
+		
+		<adapterClass>br.com.mv.soul.ffch.forms.ConsultaPaciente.model.AtendimeAdapter</adapterClass>
+		
+		
+		
+		
+	</manager>
+</b:beans>

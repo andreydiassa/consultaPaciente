@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FormStructure AlertDataPath="/br/com/mv/soul/ffch/forms/ConsultaPaciente/ConsultaPacienteAlerts.xml" LovDataPath="/br/com/mv/soul/ffch/forms/ConsultaPaciente/ConsultaPacienteLovs.xml" Name="CONSULTA_PACIENTE">
+    <Visual>
+        <Window Id="WIN_PRINCIPAL" Url="br/com/mv/soul/ffch/forms/ConsultaPaciente/views/ViewWinPrincipal">
+            <ContentCanvas Id="CG$PAGE_1"/>
+        </Window>
+        <Window Id="DUMMY" Url="br/com/mv/soul/ffch/forms/ConsultaPaciente/views/ViewDummy"/>
+    </Visual>
+    <Logic>
+        <Block Id="MV_CONTROLE">
+            <Item CanvasName="CNV_PRINCIPAL" Id="DSP_TITULO_01" Type="DisplayItem"/>
+        </Block>
+        <Block Id="PACIENTE" MultiRecord="true"  AllowInsert="false" AllowUpdate="false" allowdelete="false"  AllowSearch="true" Navigable="false" >
+            <Item CanvasName="CG$PAGE_1" Id="CD_PACIENTE" Type="TextItem" />
+            <Item CanvasName="CG$PAGE_1" Id="NM_PACIENTE" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="TP_SEXO" Type="TextItem" Enabled="false"/>
+            <Item CanvasName="CG$PAGE_1" Id="DT_NASCIMENTO" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="NR_CPF" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="CD_PACIENTE_PESQUISA" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="BTN_PESQUISA_PACIENTE" Type="Button"/>
+        </Block>
+        <Block Id="ATENDIME" MultiRecord="true"  AllowInsert="false" AllowUpdate="false" allowdelete="false"  >
+            <Item CanvasName="CG$PAGE_1" Id="CD_ATENDIMENTO" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="CD_CONVENIO" Type="TextItem"/>
+             <Item CanvasName="CG$PAGE_1" Id="NM_CONVENIO" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="DT_ATENDIMENTO" Type="TextItem"/>
+            <Item CanvasName="CG$PAGE_1" Id="HR_ATENDIMENTO" Type="TextItem"/>
+        </Block>
+    </Logic>
+</FormStructure>

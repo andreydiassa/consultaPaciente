@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config xmlns="urn:schemas:morphis:frames:view" xmlns:a="urn:schemas:morphis:frames:addition" xmlns:xl="urn:schemas:morphis:frames:logic" layout="positional">
+    <panel class="ContentCanvas" name="CG$PAGE_1" style="ui-content-full">
+        <interactionBlock name="ATENDIME"/>
+        <interactionBlock name="PACIENTE"/>
+        <!-- 1º GRID -->
+        <framepanel height="65px" left="10px" right="10px" top="10px">
+            <textbox block="PACIENTE" bottom="20px" case="upper" datatype="String" label="ConsultaPaciente.paciente.Paciente.label" labelposition="top" left="10px" maxlength="200" member="CD_PACIENTE_PESQUISA" name="cdPacientePesquisa" right="250px" enabled="true"/>
+            <button action="WHEN-MOUSE-CLICK" block="PACIENTE" bottom="20px" heigth="25px" label="ConsultaPaciente.paciente.btnPesquisa.label" member="BTN_PESQUISA_PACIENTE" name="btnPesquisaPaciente" right="60px" width="150px"/>
+       
+       <!-- 2º GRID -->
+        </framepanel>
+        <gridview block="PACIENTE" height="180px" left="10px" name="grdPaciente" right="10px" top="100px">
+            <viewheader>
+                <viewcolumn datatype="Number" label="ConsultaPaciente.paciente.cdPaciente.label" maxlength="8" member="CD_PACIENTE" name="cdPaciente" textalign="right" width="56px"/>
+                <viewcolumn datatype="String" label="ConsultaPaciente.paciente.nmPaciente.label" maxlength="200" member="NM_PACIENTE" name="nmPaciente" width="500px"/>
+                <viewcolumn datatype="String" label="ConsultaPaciente.paciente.tpSexo.label" maxlength="1" member="TP_SEXO" name="tpSexo" width="50px" >
+                
+                <editor>
+							<combobox height="22px">
+								<model>
+									<item label="Feminino" value="F"/>
+									<item label="Masculino" value="M"/>
+									
+								</model>
+							</combobox>
+						</editor>
+					</viewcolumn>
+                
+                <viewcolumn datatype="Date" label="ConsultaPaciente.paciente.dtNascimento.label" member="DT_NASCIMENTO" name="dtNascimento" width="50px">
+                    <editor>
+                        <calendar name="" width="100px"/>
+                    </editor>
+                </viewcolumn>
+                <viewcolumn datatype="String"  style="MVMask365"  label="CPF" maxlength="11" member="NR_CPF" name="nrCpf" width="77px"/>
+            </viewheader>
+        </gridview>
+        <!-- 3º GRID -->
+        <gridview block="ATENDIME" height="180px" left="10px" name="grdAtendime" right="10px" top="300px">
+            <viewheader>
+                <viewcolumn datatype="Number" label="consultaPaciente.atendime.cdAtendimento.label" labelwidth="100px" maxlength="10" member="CD_ATENDIMENTO" name="cdAtendimento" textalign="right" width="70px"/>
+                <viewcolumn datatype="Number" label="consultaPaciente.atendime.cdConvenio.label" labelwidth="100px" maxlength="3" member="CD_CONVENIO" name="cdConvenio" textalign="right" width="50px"/>
+                <viewcolumn datatype="String" label="consultaPaciente.atendime.nmConvenio.label" labelwidth="100px" maxlength="60" member="NM_CONVENIO"  name="nmConvenio" textalign="" width="250px"/>
+                <viewcolumn datatype="Date" label="consultaPaciente.atendime.dtAtendimento.label" member="DT_ATENDIMENTO"  name="dtAtendimento" width="100px">
+                    <editor>
+                        <calendar name="" width="100px"/>
+                    </editor>
+                </viewcolumn>
+                <viewcolumn datatype="Date" style="MVMask440" label="consultaPaciente.atendime.horaAtendimento.label" labelwidth="100px" member="HR_ATENDIMENTO" name="hrAtendimento" width="100px">
+                    <editor>
+                        <calendar name="" width="100px"/>
+                    </editor>
+                </viewcolumn>
+            </viewheader>
+        </gridview>
+    </panel>
+</config>

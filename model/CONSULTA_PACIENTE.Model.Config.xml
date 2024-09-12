@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans 
+	xmlns="urn:schemas:morphis:foundations:formmodel"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd urn:schemas:morphis:foundations:formmodel http://www.morphis-tech.com/schema/foundations/formmodel.xsd">
+	
+	<b:import resource="classpath:/br/com/mv/soul/ffch/forms/ConsultaPaciente/model/PACIENTE.Manager.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/ffch/forms/ConsultaPaciente/model/ATENDIME.Manager.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/forms/model/MV_CONTROLE.Manager.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/ffch/forms/ConsultaPaciente/model/CONSULTA_PACIENTE.ValueSet.Config.xml"/>
+	
+	<formModel id="CONSULTA_PACIENTE.Model.Config" name="CONSULTA_PACIENTE">
+		<modelClass>br.com.mv.soul.ffch.forms.ConsultaPaciente.model.ConsultaPacienteModel</modelClass>
+		<parameters>
+			<parameter name="VERSAO_RELEASE" type="String">
+				<value>
+					<constant>H</constant>
+				</value>
+			</parameter>
+			<parameter name="VERSAO" type="String">
+				<value>
+					<constant>4.8.0</constant>
+				</value>
+			</parameter>
+			<parameter name="CD_MULTI_EMPRESA" type="Number">
+				<value>
+					<constant>1</constant>
+				</value>
+			</parameter>
+			<parameter name="DS_MULTI_EMPRESA" type="String">
+				<value>
+					<constant>DESCRICAO DA EMPRESA</constant>
+				</value>
+			</parameter>
+		</parameters>
+		<businessObjects>
+			<businessObject name="MV_CONTROLE" manager="MV_CONTROLE.Manager.Config">
+			</businessObject>
+			<businessObject name="PACIENTE" manager="PACIENTE.Manager.Config">
+				<associations>
+					<association child="ATENDIME" deleteParentBehavior="Cascading" autoQuery="false">
+						<mapping parent="CD_PACIENTE" child="CD_PACIENTE"/>
+					</association>
+				</associations>
+			</businessObject>
+			<businessObject name="ATENDIME" manager="ATENDIME.Manager.Config">
+			</businessObject>
+		</businessObjects>
+		<valueSets>
+		</valueSets>
+	</formModel>
+</b:beans>

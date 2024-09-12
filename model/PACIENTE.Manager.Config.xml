@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans 
+	xmlns="urn:schemas:morphis:foundations:businessobject"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd urn:schemas:morphis:foundations:businessobject http://www.morphis-tech.com/schema/foundations/businessobject.xsd">
+	<manager id="PACIENTE.Manager.Config" name="PACIENTE">
+		<items>
+			<item name="CD_PACIENTE" logicalName="cdPaciente" type="java.math.BigDecimal" physicalName="CD_PACIENTE" key="true">
+			</item>
+			<item name="NM_PACIENTE" logicalName="nmPaciente" type="java.lang.String" physicalName="NM_PACIENTE">
+			</item>
+			<item name="TP_SEXO" logicalName="tpSexo" type="java.lang.String" physicalName="TP_SEXO">
+			</item>
+			<item name="DT_NASCIMENTO" logicalName="dtNascimento" type="java.util.Date" physicalName="DT_NASCIMENTO">
+			</item>
+			<item name="NR_CPF" logicalName="nrCpf" type="java.lang.String" physicalName="NR_CPF">
+			</item>
+			<item name="CD_PACIENTE_PESQUISA" logicalName="cdPacientePesquisa" type="String" virtual="true">
+			</item>
+			<item name="BTN_PESQUISA_PACIENTE" logicalName="btnPesquisaPaciente" type="String" virtual="true">
+			</item>
+		</items>
+		
+		<adapterClass>br.com.mv.soul.ffch.forms.ConsultaPaciente.model.PacienteAdapter</adapterClass>
+		
+		
+		
+		
+	</manager>
+</b:beans>

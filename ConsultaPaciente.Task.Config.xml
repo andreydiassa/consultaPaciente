@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans 
+	xmlns="urn:schemas:morphis:foundations:task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd urn:schemas:morphis:foundations:task http://www.morphis-tech.com/schema/foundations/task.xsd">
+	
+	<!-- base task definition -->
+	<b:import resource="classpath:/br/com/mv/soul/common/forms/MVCusto/MVCusto.Task.Config.xml"/>
+	<!-- library resources -->
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/Autentica/AUTENTICA.Library.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/Mv2000/MV2000.Library.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/Ofgtel/OFGTEL.Library.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/Ofgmes/OFGMES.Library.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/MvAdm/MV_ADM.Library.Config.xml"/>
+	<b:import resource="classpath:/br/com/mv/soul/common/libs/MvRegMaq/MV_REG_MAQ.Library.Config.xml"/>
+	<!-- model definition -->
+	<b:import resource="classpath:/br/com/mv/soul/ffch/forms/ConsultaPaciente/model/CONSULTA_PACIENTE.Model.Config.xml"/>
+	
+	<task id="CONSULTA_PACIENTE.Task.Config" name="CONSULTA_PACIENTE">
+		<baseTaskConfiguration config="MVCusto.Task.Config"/>		
+		<properties>
+			<property name="CATEGORY" value="MASTER_DETAIL_GRID"/>
+		</properties>
+		<taskClass>br.com.mv.soul.ffch.forms.ConsultaPaciente.ConsultaPacienteTask</taskClass>		
+		<!-- struct -->
+		<taskResources>/br/com/mv/soul/ffch/forms/ConsultaPaciente/ConsultaPacienteStruct.xml</taskResources>
+		
+		<!-- support code -->
+		<supportCodeConfiguration>
+			<services>br.com.mv.soul.ffch.forms.ConsultaPaciente.services.ConsultaPacienteServices</services>
+			<attachedLibraries>
+				<libraryConfiguration config="AUTENTICA.Lib.Config"/>
+				<libraryConfiguration config="MV2000.Lib.Config"/>
+				<libraryConfiguration config="OFGTEL.Lib.Config"/>
+				<libraryConfiguration config="OFGMES.Lib.Config"/>
+				<libraryConfiguration config="MV_ADM.Lib.Config"/>
+				<libraryConfiguration config="MV_REG_MAQ.Lib.Config"/>
+			</attachedLibraries>
+		</supportCodeConfiguration>
+		
+		<!-- model -->
+		<formModelConfiguration config="CONSULTA_PACIENTE.Model.Config"/>
+		
+		<formController>br.com.mv.soul.ffch.forms.ConsultaPaciente.controller.ConsultaPacienteFormController</formController>
+		<blockControllers>
+			<block name="MV_CONTROLE">br.com.mv.soul.common.forms.controller.MvControleController</block>
+			<block name="ATENDIME">br.com.mv.soul.ffch.forms.ConsultaPaciente.controller.AtendimeController</block>
+			<block name="PACIENTE">br.com.mv.soul.ffch.forms.ConsultaPaciente.controller.PacienteController</block>
+		</blockControllers>
+	</task>
+</b:beans>
